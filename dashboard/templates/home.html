@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block main %}
+<header>
+    <div class="nav-links">
+        <button class="menu-btn" id="menu-open">
+            <i class='bx bx-menu'></i>
+        </button>
+        <a href="#">SkyMedic</a>
+        <a href="#">AeroHealth</a>
+        <a href="#" style="margin-right: 10px;">DroneCare</a>
+    </div>
+    <div class="search">
+        <i class='bx bx-search'></i>
+        <input type="text" placeholder="Type here to search">
+    </div>
+
+</header>
+
+<div class="trending">
+    <div class="left">
+        <h5>Our Product</h5>
+        <div class="info">
+            <h2>Medical Drone</h2>
+            <h4>Advancing Healthcare Through Drones</h4>
+            <br>
+            <h5>nnovative Solutions for Healthcare</h5>
+            <div class="buttons">
+                <button>Learn More</button>
+                <i class='bx bxs-heart'></i>
+            </div>
+        </div>
+    </div>
+    <div class="video-card">
+        <video id="myVideo" src="{% static 'images/vecteezy_white-drone-spins-360-degrees-in-the-air-a-breathtaking_22609083.mp4'%}"
+            autoplay loop muted></video>
+        <div class="card-content">
+            <h2>Medical Drone</h2>
+            <p>Rion Clarke</p>
+            <p>63 Million Plays</p>
+            <button>Learn More</button>
+            <i class='bx bxs-heart'></i>
+        </div>
+    </div>
+</div>
+
+<div class="playlist">
+    <div class="genres">
+        <div class="header">
+            <h5>Services</h5>
+            <a href="#">See all</a>
+        </div>
+
+        <div class="items">
+            <div class="item">
+                <p>Remote Healthcare<br>Access</p>
+            </div>
+            <div class="item">
+                <p>Public<br>Health</p>
+            </div>
+            <div class="item">
+                <p>Research<br>and Innovation</p>
+            </div>
+            <div class="item">
+                <p>Regulatory and<br>Ethical Considerations</p>
+            </div>
+            <div class="item">
+                <p>Delivery<br>destination</p>
+            </div>
+            <div class="item">
+                <p>Partnerships and<br>Collaborations</p>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <div class="music-list">
+        <div class="header">
+            <h5>How It Works</h5>
+            <a href="#">Learn More</a>
+        </div>
+
+        <div class="items">
+            <div class="item">
+                <div class="info">
+                    <img src="{% static 'images/medidrone.jpg'%}">
+                    <div class="details">
+                        <h5>Request Assistance</h5>
+                        <p>Begin by submitting a request for the medical assistance or supplies you need.</p>
+                    </div>
+                </div>
+                <div class="actions">
+                
+                    <div class="icon">
+                        <i class='bx bxs-right-arrow'></i>
+                    </div>
+                    <i class='bx bxs-plus-square'></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="info">
+                    
+                    <img src="{% static 'images/[Downloader.la]-661f1a864fc3b.jpg' %}">
+                    <div class="details">
+                        <h5>Dispatch and Deployment</h5>
+                        <p>Upon receiving your request, our automated system swiftly dispatches a medical drone equipped with the necessary
+                        supplies or equipment.</p>
+                    </div>
+                </div>
+                <div class="actions">
+                    <div class="icon">
+                        <i class='bx bxs-right-arrow'></i>
+                    </div>
+                    <i class='bx bxs-plus-square'></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="info">
+                    <img src="{% static 'images/Healthcare-Drone-Technology-Remote.jpg' %}">
+                    <div class="details">
+                        <h5>Aerial Delivery and Monitoring</h5>
+                        <p>As the medical drone travels to your location, our team closely monitors its progress in real-time. Once it arrives, the
+                        drone autonomously performs the delivery, dropping off the supplies with precision and efficiency.</p>
+                    </div>
+                </div>
+                <div class="actions">
+                    <div class="icon">
+                        <i class='bx bxs-right-arrow'></i>
+                    </div>
+                    <i class='bx bxs-plus-square'></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="info">
+                    <img src="{% static 'images/mapdrone.jpg' %}">
+                    <div class="details">
+                        <h5>Confirmation and Follow-Up</h5>
+                        <p>After the successful delivery, you'll receive immediate confirmation of receipt. Our customer support team follows up to
+                        ensure your satisfaction and address any further needs or inquiries you may have.</p>
+                    </div>
+                </div>
+                <div class="actions">
+                    <div class="icon">
+                        <i class='bx bxs-right-arrow'></i>
+                    </div>
+                    <i class='bx bxs-plus-square'></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
+
+{% block others %}
+<div class="music-player">
+    <div class="top-section">
+        <div class="header">
+            <h5>Medical Drone Project Overview</h5>
+    <i class='bx bx-info-circle'></i>
+        </div>
+        <div class="song-info">
+            <img src="{% static 'images/[Downloader.la]-661f1a864fc3b.jpg' %}">
+            <div class="description">
+                <h3>Revolutionizing Healthcare Delivery with Medical Drones
+            </h3>
+                <h5>By MediDrone</h5>
+                <p>Discover how our medical drone project is transforming healthcare delivery and emergency response in communities worldwide.</p>
+            </div>
+        <style>
+            .social-icons a i {
+                font-size: 24px;
+                /* Adjust the font size as needed */
+            }
+        </style>
+        
+        <div class="project-actions">
+            <div class="buttons">
+                <button>Learn More</button>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/robotique.fsr/"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.linkedin.com/company/robotics-club-fsr/"><i class='bx bxl-linkedin'></i></a>
+            </div>
+            <div class="explore">
+                <a href="#features-section"><i class='bx bx-chevron-down'></i></a>
+                <h5>EXPLORE</h5>
+            </div>
+        </div>
+{% endblock %}

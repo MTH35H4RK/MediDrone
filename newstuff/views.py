@@ -9,7 +9,7 @@ def template(request):
     return render(request, "empty.html")
 
 def drones(request):
-    return render(request, "empty.html")
+    return render(request, "drones.html")
 
 def alerts(request):
     return render(request, "empty.html")

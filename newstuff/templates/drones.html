@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% load static %}
+
 {% block active %}
-<ul class="side-menu top">
     <li>
         <a href="{% url 'dashboard' %}">
             <i class='bx bxs-dashboard bx-rotate-90' style='color:rgb(0, 0, 0), 255, 0;'></i>
@@ -39,7 +39,7 @@
             <span class="text">Team</span>
         </a>
     </li>
-</ul>
 {% endblock %}
+
 {% block main %}
 {% endblock %}

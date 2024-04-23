@@ -12,13 +12,13 @@ def drones(request):
     return render(request, "drones.html")
 
 def alerts(request):
-    return render(request, "empty.html")
+    return render(request, "alerts.html")
 
 def reports(request):
-    return render(request, "empty.html")
+    return render(request, "reports.html")
 
 def team(request):
-    return render(request, "empty.html")
+    return render(request, "team.html")
 
 def settings(request):
-    return render(request, "empty.html")
+    return render(request, "settings.html")

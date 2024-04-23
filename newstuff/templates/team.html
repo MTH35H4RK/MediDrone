@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
 {% load static %}
+
 {% block active %}
-<ul class="side-menu top">
     <li>
         <a href="{% url 'dashboard' %}">
             <i class='bx bxs-dashboard bx-rotate-90' style='color:rgb(0, 0, 0), 255, 0;'></i>
             <span class="text">Dashboard</span>
         </a>
     </li>
-    <li class="active">
+    <li>
         <a href="{% url 'drones' %}">
             <i class='bx bx-command bx-rotate-90' style='color:rgb(0, 0, 0)'></i>
             <span class="text">Drones</span>
@@ -33,13 +33,13 @@
             <span class="text">Settings</span>
         </a>
     </li>
-    <li>
+    <li class="active">
         <a href="{% url 'team' %}">
             <i class='bx bxs-group' ></i>
             <span class="text">Team</span>
         </a>
     </li>
-</ul>
 {% endblock %}
+
 {% block main %}
 {% endblock %}

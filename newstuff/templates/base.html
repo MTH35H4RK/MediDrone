@@ -23,8 +23,11 @@
 			<i class='bx bx-command bx-rotate-90' style='color:rgb(83, 111, 135)'></i>
 			<span class="text">MediDrone</span>
 		</a>
-	{% block active %}
-	{% endblock %}
+		<ul class="side-menu top">
+			{% block active %}
+			
+			{% endblock %}
+		</ul>
 		<ul class="side-menu">
 			<li>
 				<a href="{% url 'settings' %}">

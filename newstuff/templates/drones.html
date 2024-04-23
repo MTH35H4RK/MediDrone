@@ -2,6 +2,14 @@
 
 {% load static %}
 
+{% block style %}
+        <link rel="stylesheet" href="{% static 'css/jquery.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/swiper.css' %}" />
+
+		<!-- Theme CSS -->
+		<link rel="stylesheet" href="{% static 'css/bpl.css' %}" />
+{% endblock %}
+
 {% block active %}
     <li>
         <a href="{% url 'dashboard' %}">
@@ -42,4 +50,169 @@
 {% endblock %}
 
 {% block main %}
+<div class="container-xxl">
+    <div class="d-flex flex-column flex-xl-row align-items-xl-center gap-20">
+        
+        </div>
+    </div>
+
+    <div class="d-grid mt-60 gap-34">
+        <div class="job-card-harizontal">
+            <button class="btn btn-rounded btn-white position-absolute d-xl-none top-100 start-50 p-10 translate-middle" type="button" data-bs-toggle="collapse" data-bs-target="#jobInfoCardCollapse" aria-expanded="false" aria-controls="jobInfoCardCollapse">
+                <img src="{% static 'images/chevron-down.svg' %}" class="svg-inject text-primary is-16" alt="" />
+            </button>
+            <div class="job-info">
+                <div class="job-image">
+                    <img src="{% static 'images/drone.svg' %}" alt="" />
+                </div>
+                <div class="job-info-inner">
+                    <h5 class="job-title">
+                        <a href="">DroneXT13</a>
+                    </h5>
+                    <div class="job-author">
+                        <a href="#">Connected</a>
+                    </div>
+                </div>
+            </div>
+            <div class="job-info-card-collapse collapse" id="jobInfoCardCollapse">
+                <div class="job-info-card">
+                    <div class="info-card">
+                        <div class="info-card-icon bg-ufo-green-100 rounded-pill">
+                            <img src="{% static 'images/sssvg.svg' %}" class="svg-inject svg-icon" alt="" />
+                        </div>
+                        <div class="info-card-content">
+                            <h6 class="info-card-title">85 %</h6>
+                            <div class="info-card-desc">Battery</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-icon bg-rajah rounded-pill">
+                            <img src="{% static 'images/mark.svg'%}" class="svg-inject svg-icon" alt="" />
+                        </div>
+                        <div class="info-card-content">
+                            <h6 class="info-card-title">Casablanca, Morocco</h6>
+                            <div class="info-card-desc">Location</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="job-action">
+                <a class="btn btn-apply flex-fill flex-md-nofill fw-semiBold py-12 px-43 rounded-pill" href="/jobdetail.html">Watch Now</a>
+
+            </div>
+        </div>
+        <!-- /.job-card-grid-harizontal-component -->
+
+    </div>
+    <div class="d-grid mt-60 gap-34">
+        <div class="job-card-harizontal">
+            <button class="btn btn-rounded btn-white position-absolute d-xl-none top-100 start-50 p-10 translate-middle" type="button" data-bs-toggle="collapse" data-bs-target="#jobInfoCardCollapse" aria-expanded="false" aria-controls="jobInfoCardCollapse">
+                <img src="{% static 'images/chevron-down.svg' %}" class="svg-inject text-primary is-16" alt="" />
+            </button>
+            <div class="job-info">
+                <div class="job-image">
+                    <img src="{% static 'images/drone.svg' %}" alt="" />
+                </div>
+                <div class="job-info-inner">
+                    <h5 class="job-title">
+                        <a href="">DroneXT14</a>
+                    </h5>
+                    <div class="job-author">
+                        <a href="#">Disconnected</a>
+                    </div>
+                </div>
+            </div>
+            <div class="job-info-card-collapse collapse" id="jobInfoCardCollapse">
+                <div class="job-info-card">
+                    <div class="info-card">
+                        <div class="info-card-icon bg-ufo-green-100 rounded-pill">
+                            <img src="{% static 'images/sssvg.svg' %}" class="svg-inject svg-icon" alt="" />
+                        </div>
+                        <div class="info-card-content">
+                            <h6 class="info-card-title">___</h6>
+                            <div class="info-card-desc">Battery</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-icon bg-rajah rounded-pill">
+                            <img src="{% static 'images/mark.svg'%}" class="svg-inject svg-icon" alt="" />
+                        </div>
+                        <div class="info-card-content">
+                            <h6 class="info-card-title">___</h6>
+                            <div class="info-card-desc">Location</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="job-action">
+                <a class="btn btn-apply flex-fill flex-md-nofill fw-semiBold py-12 px-43 rounded-pill" href="/jobdetail.html">Unavailable</a>
+
+            </div>
+        </div>
+        <!-- /.job-card-grid-harizontal-component -->
+
+    </div>
+
+    <div class="d-grid mt-60 gap-34">
+        <div class="job-card-harizontal">
+            <button class="btn btn-rounded btn-white position-absolute d-xl-none top-100 start-50 p-10 translate-middle" type="button" data-bs-toggle="collapse" data-bs-target="#jobInfoCardCollapse" aria-expanded="false" aria-controls="jobInfoCardCollapse">
+                <img src="{% static 'images/chevron-down.svg' %}" class="svg-inject text-primary is-16" alt="" />
+            </button>
+            <div class="job-info">
+                <div class="job-image">
+                    <img src="{% static 'images/drone.svg' %}" alt="" />
+                </div>
+                <div class="job-info-inner">
+                    <h5 class="job-title">
+                        <a href="">DroneXT15</a>
+                    </h5>
+                    <div class="job-author">
+                        <a href="#">Disconnected</a>
+                    </div>
+                </div>
+            </div>
+            <div class="job-info-card-collapse collapse" id="jobInfoCardCollapse">
+                <div class="job-info-card">
+                    <div class="info-card">
+                        <div class="info-card-icon bg-ufo-green-100 rounded-pill">
+                            <img src="{% static 'images/sssvg.svg' %}" class="svg-inject svg-icon" alt="" />
+                        </div>
+                        <div class="info-card-content">
+                            <h6 class="info-card-title">___</h6>
+                            <div class="info-card-desc">Battery</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-icon bg-rajah rounded-pill">
+                            <img src="{% static 'images/mark.svg'%}" class="svg-inject svg-icon" alt="" />
+                        </div>
+                        <div class="info-card-content">
+                            <h6 class="info-card-title">___</h6>
+                            <div class="info-card-desc">Location</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="job-action">
+                <a class="btn btn-apply flex-fill flex-md-nofill fw-semiBold py-12 px-43 rounded-pill" href="/jobdetail.html">Unavailable</a>
+
+            </div>
+        </div>
+        <!-- /.job-card-grid-harizontal-component -->
+
+    </div>
+{% endblock %}
+
+{% block js %}
+        <script src="{% static 'js/bootstrap.js' %}"></script>
+
+		<!-- Vendors -->
+		<script src="{% static 'js/jquery1.js' %}"></script>
+		<script src="{% static 'js/jquery2.js' %}"></script>
+		<script src="{% static 'js/swiper.js' %}"></script>
+		<script src="{% static 'js/svg.js' %}"></script>
+		<script src="{% static 'js/fslightbox.js' %}"></script>
+
+		<!-- Template Function -->
+		<script src="{% static 'js/theme.js' %}"></script>
 {% endblock %}

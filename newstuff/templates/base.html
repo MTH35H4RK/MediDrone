@@ -4,6 +4,9 @@
 {% load static %}
 
 <head>
+	{% block style %}
+	{% endblock %}
+
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -25,7 +28,7 @@
 		</a>
 		<ul class="side-menu top">
 			{% block active %}
-			
+
 			{% endblock %}
 		</ul>
 		<ul class="side-menu">
@@ -81,5 +84,8 @@
 	
 
 	<script src="{% static 'js/script.js'%}"></script>
+
+	{% block js %}
+	{% endblock %}
 </body>
 </html>

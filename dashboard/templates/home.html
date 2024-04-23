@@ -2,22 +2,136 @@
 
 {% load static %}
 
-{% block main %}
-<header>
-    <div class="nav-links">
-        <button class="menu-btn" id="menu-open">
-            <i class='bx bx-menu'></i>
-        </button>
-        <a href="#">SkyMedic</a>
-        <a href="#">AeroHealth</a>
-        <a href="#" style="margin-right: 10px;">DroneCare</a>
-    </div>
-    <div class="search">
-        <i class='bx bx-search'></i>
-        <input type="text" placeholder="Type here to search">
-    </div>
+{% block style %}
+    <style>
+        
+        .container .right-section .music-player{
+            color: #fff;
+            background-color: #202026;
+            border-radius: 6px;
+            height: 88%;
+            display: flex;
+            flex-direction: column;
+        }
 
-</header>
+        .container .right-section .music-player .top-section{
+            padding: 20px;
+            height: 86%;
+        }
+
+        .container .right-section .music-player .header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .container .right-section .music-player .song-info{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            text-align: center;
+        }
+
+        .container .right-section .music-player .song-info img{
+            width: 280px;
+            height: 220px;
+        }
+
+        .container .right-section .music-player .description h3{
+            font-size: 26px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .container .right-section .music-player .description h5{
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .container .right-section .music-player .description p{
+            color: #919191;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .container .right-section .music-player .song-info .progress{
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .container .right-section .music-player .song-info .progress p{
+            font-size: 11px;
+        }
+
+        .container .right-section .music-player .song-info .progress .active-line{
+            position: relative;
+            width: 120px;
+            height: 2px;
+            background-color: #fff;
+            margin-left: 30px;
+        }
+
+        .container .right-section .music-player .song-info .progress .deactive-line{
+            width: 80px;
+            height: 2px;
+            background-color: #919191;
+            margin-right: 30px;
+        }
+
+        .container .right-section .music-player .song-info .progress .active-line::before{
+            content: "";
+            background-color: #25252d;
+            height: 10px;
+            width: 10px;
+            border: 2px solid #fff;
+            position: absolute;
+            top: -6px;
+            left: 120px;
+            border-radius: 50%;
+        }
+
+        .container .right-section .music-player .player-actions{
+            background-color: #5773ff;
+            height: 26%;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .container .right-section .music-player .player-actions .buttons{
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-top: 24px;
+        }
+
+        .container .right-section .music-player .player-actions .buttons i{
+            font-size: 20px;
+        }
+
+        .container .right-section .music-player .player-actions .buttons .play-button{
+            padding: 16px;
+            background-color: #fff;
+            color: #5773ff;
+            border-radius: 18px;
+        }
+
+        .container .right-section .music-player .player-actions .lyrics{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            bottom: 8px;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
 
 <div class="trending">
     <div class="left">
@@ -46,119 +160,13 @@
     </div>
 </div>
 
-<div class="playlist">
-    <div class="genres">
-        <div class="header">
-            <h5>Services</h5>
-            <a href="#">See all</a>
-        </div>
-
-        <div class="items">
-            <div class="item">
-                <p>Remote Healthcare<br>Access</p>
-            </div>
-            <div class="item">
-                <p>Public<br>Health</p>
-            </div>
-            <div class="item">
-                <p>Research<br>and Innovation</p>
-            </div>
-            <div class="item">
-                <p>Regulatory and<br>Ethical Considerations</p>
-            </div>
-            <div class="item">
-                <p>Delivery<br>destination</p>
-            </div>
-            <div class="item">
-                <p>Partnerships and<br>Collaborations</p>
-            </div>
-            
-        </div>
-
-    </div>
-
-    <div class="music-list">
-        <div class="header">
-            <h5>How It Works</h5>
-            <a href="#">Learn More</a>
-        </div>
-
-        <div class="items">
-            <div class="item">
-                <div class="info">
-                    <img src="{% static 'images/medidrone.jpg'%}">
-                    <div class="details">
-                        <h5>Request Assistance</h5>
-                        <p>Begin by submitting a request for the medical assistance or supplies you need.</p>
-                    </div>
-                </div>
-                <div class="actions">
-                
-                    <div class="icon">
-                        <i class='bx bxs-right-arrow'></i>
-                    </div>
-                    <i class='bx bxs-plus-square'></i>
-                </div>
-            </div>
-            <div class="item">
-                <div class="info">
-                    
-                    <img src="{% static 'images/[Downloader.la]-661f1a864fc3b.jpg' %}">
-                    <div class="details">
-                        <h5>Dispatch and Deployment</h5>
-                        <p>Upon receiving your request, our automated system swiftly dispatches a medical drone equipped with the necessary
-                        supplies or equipment.</p>
-                    </div>
-                </div>
-                <div class="actions">
-                    <div class="icon">
-                        <i class='bx bxs-right-arrow'></i>
-                    </div>
-                    <i class='bx bxs-plus-square'></i>
-                </div>
-            </div>
-            <div class="item">
-                <div class="info">
-                    <img src="{% static 'images/Healthcare-Drone-Technology-Remote.jpg' %}">
-                    <div class="details">
-                        <h5>Aerial Delivery and Monitoring</h5>
-                        <p>As the medical drone travels to your location, our team closely monitors its progress in real-time. Once it arrives, the
-                        drone autonomously performs the delivery, dropping off the supplies with precision and efficiency.</p>
-                    </div>
-                </div>
-                <div class="actions">
-                    <div class="icon">
-                        <i class='bx bxs-right-arrow'></i>
-                    </div>
-                    <i class='bx bxs-plus-square'></i>
-                </div>
-            </div>
-            <div class="item">
-                <div class="info">
-                    <img src="{% static 'images/mapdrone.jpg' %}">
-                    <div class="details">
-                        <h5>Confirmation and Follow-Up</h5>
-                        <p>After the successful delivery, you'll receive immediate confirmation of receipt. Our customer support team follows up to
-                        ensure your satisfaction and address any further needs or inquiries you may have.</p>
-                    </div>
-                </div>
-                <div class="actions">
-                    <div class="icon">
-                        <i class='bx bxs-right-arrow'></i>
-                    </div>
-                    <i class='bx bxs-plus-square'></i>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</div>
-
 
 {% endblock %}
 
 {% block others %}
+
+{% endblock %}
+
 <div class="music-player">
     <div class="top-section">
         <div class="header">
@@ -193,4 +201,3 @@
                 <h5>EXPLORE</h5>
             </div>
         </div>
-{% endblock %}

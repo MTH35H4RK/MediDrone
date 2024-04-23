@@ -9,6 +9,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Medicale Drone</title>
+    {% block style %}
+    {% endblock %}
 </head>
 
 <body>
@@ -21,7 +23,7 @@
                 </button>
                 <i class='bx bx-pulse'></i>
                 
-                <a href="">MediDrone</a>
+                <a href="{% url 'dashboard' %}">MediDrone</a>
             </div>
 
             <div class="menu">
@@ -29,71 +31,21 @@
                 <ul>
                     <li>
             <i class='bx bxs-dashboard bx-rotate-90' style='color:rgb(255, 255, 255, 255, 0)'></i>
-                        <a href="#">Dashboard</a>
+                        <a href="{% url 'dashboard' %}">Dashboard</a>
                     </li>
                     <li>
                         
             <i class='bx bx-command bx-rotate-90' style='color:rgb(255, 255, 255)'></i>
-                        <a href="#">Drones</a>
+                        <a href="{% url 'drones' %}">Drones</a>
                     </li>
                     <li>
                 <i class='bx bx-bell ' style='color:rgb(255, 255, 255)'></i>
-                        <a href="#">Alerts</a>
+                        <a href="{% url 'alerts' %}">Alerts</a>
                     </li>
                     <li>
                         <i class='bx bxs-report' ></i>
-                        <a href="#">Reports</a>
+                        <a href="{% url 'reports' %}">Reports</a>
                     </li>
-                    <li>
-                        <i class='bx bx-cog bx-rotate-180' style='color:rgb(255, 255, 255)'></i>
-                        <a href="#">Settings</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="menu">
-                <h5>Vision</h5>
-                <ul>
-                    <li>
-                        <i class='bx bx-undo'></i>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <i class='bx bxs-photo-album'></i>
-                        <a href="#">Technology</a>
-                    </li>
-                    <li>
-                        <i class='bx bxs-heart'></i>
-                        <a href="#">Blog</a>
-                    </li>
-                    <li>
-                        <i class='bx bxs-folder'></i>
-                        <a href="#">FAQ</a>
-                    </li>
-
-                </ul>
-            </div>
-
-            <div class="menu">
-                <h5>Our Fleet</h5>
-                <ul>
-                    <li>
-                        <i class='bx bxs-plus-square'></i>
-                        <a href="#">Our Drones</a>
-                    </li>
-                    <li>
-                        <i class='bx bxs-caret-right-circle'></i>
-                        <a href="#">Delivery Zones</a>
-                    </li>
-                    <li>
-                        <i class='bx bxs-caret-right-circle'></i>
-                        <a href="#">How It Works</a>
-                    </li>
-                    <li>
-                        <i class='bx bxs-caret-right-circle'></i>
-                        <a href="#">Contact Us</a>
-                    </li>
-
                 </ul>
             </div>
 
@@ -112,10 +64,25 @@
         </aside>
 
         <main>
+            <header>
+                <div class="nav-links">
+                    <button class="menu-btn" id="menu-open">
+                        <i class='bx bx-menu'></i>
+                    </button>
+                    <a href="#">SkyMedic</a>
+                    <a href="#">AeroHealth</a>
+                    <a href="#" style="margin-right: 10px;">DroneCare</a>
+                </div>
+                <div class="search">
+                    <i class='bx bx-search'></i>
+                    <input type="text" placeholder="Type here to search">
+                </div>
+            
+            </header>
+
             {% block main %}
             {% endblock %}
         </main>
-
         <div class="right-section">
 
             <div class="profile">
@@ -130,9 +97,6 @@
                     </div>
                 </div>
             </div>
-
-            {% block others %}
-            {% endblock %}
 
     </div>
 

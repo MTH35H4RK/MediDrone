@@ -83,14 +83,13 @@
 					<div class="image-maps-container">
 						<!-- Image with border -->
 						<div class="image-container">
-							<img src="{% static 'images/img.png' %}" width="352" height="288" alt="Image">
+							<img src="http://192.168.1.1:8080/" width="352" height="288" alt="Image">
 						</div>
 						<!-- Iframe -->
 						<div class="maps-container">
-							<iframe
-								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d767.2760912648878!2d-7.566555444657014!3d33.559275790324136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda6332988b9ef17%3A0xe48793672e776f66!2s150%20Bd%20du%20Nil%2C%20Casablanca%2020670!5e0!3m2!1sen!2sma!4v1713842710522!5m2!1sen!2sma"
-								width="352" height="288" style="border:0;" allowfullscreen="" loading="lazy"
-								referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <div class="image-container">
+                                <img src="{% static 'images/map.png' %}" width="352" height="288" alt="Image">
+                            </div>
 						</div>
 					</div>
 				</div>
@@ -262,6 +261,7 @@
 {% block js %}
         <script src="{% static 'js/oops.js' %}"></script>
         <script src="{% static 'js/bootstrap.js' %}"></script>
+
 
 		<!-- Vendors -->
 		<script src="{% static 'js/jquery1.js' %}"></script>

@@ -7,6 +7,43 @@
 	{% block style %}
 	{% endblock %}
 
+	<style> 
+		.button {
+		border: none;
+		color: rgba(255, 255, 255, 0);
+		padding: 12px 30px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		transition-duration: 0.4s;
+		cursor: pointer;
+		}
+
+		.button1 {
+		background-color: white; 
+		color: black; 
+		border: 2px solid #04AA6D;
+		}
+
+		.button1:hover {
+		background-color: #04AA6D;
+		color: white;
+		}
+
+		.button2 {
+		background-color: rgba(255, 255, 255, 0); 
+		color: black; 
+		border: 2px solid #008CBA;
+		}
+
+		.button2:hover {
+		background-color: #008CBA;
+		color: white;
+		}
+	</style>
+
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -22,7 +59,7 @@
 
 	<!-- SIDEBAR -->
 	<section id="sidebar">
-		<a href="{% url 'dashboard' %}" class="brand">
+		<a href="{%url 'homeapp:dashboard' %}" class="brand">
 			<img class="text"; src = "{% static 'images/oopssmaller.png'%}"></i>
 			<span class="text">MediDrone</span>
 		</a>
@@ -31,19 +68,17 @@
 
 			{% endblock %}
 		</ul>
-		<ul class="side-menu">
+		<ul class="side-menu bottom">
+		{% block sidebar%}
+		{% endblock %}
+			{% if user.is_authenticated %}
 			<li>
-				<a href="{% url 'settings' %}">
-					<i class='bx bxs-cog' ></i>
-					<span class="text">Settings</span>
-				</a>
-			</li>
-			<li>
-				<a href="#" class="logout">
+				<a href="{%url 'loginsapp:logoutuser' %}" class="logout">
 					<i class='bx bxs-log-out-circle' ></i>
 					<span class="text">Logout</span>
 				</a>
 			</li>
+			{% endif %}
 		</ul>
 	</section>
 	<!-- SIDEBAR -->
@@ -62,14 +97,35 @@
 					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
 				</div>
 			</form>
+			{% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{message}}
+                  </div>
+                {% endfor %}
+            {% endif %}
 			<input type="checkbox" id="switch-mode" hidden>
 			<a href="#" class="notification">
 				<i class='bx bxs-bell' ></i>
 				<span class="num">8</span>
 			</a>
-			<a href="#" class="profile">
-				<img src="{% static 'images/mapdrone.jpg'%}">
-			</a>
+				{% if user.is_authenticated %}
+					{% for curuser in user_list %}
+						{% if user.username == curuser.username %}
+						<a class="profile"> 
+							<img src="{% static 'images/avatar/' %}{{ user.username }}.png" alt="Avatar" href="#">	
+						</a>					
+						{% else %}
+						<a class="profile"> 
+							<img src="{% static 'images/mapdrone.jpg'%}" alt="Avatar" href="#">	
+						</a>
+						{% endif %}
+					{% endfor %}
+				{% else %}
+				<a class="profile" href= "{%url 'loginsapp:loginuser' %}"> 
+					<button type="link" class="button button2">Log In</button>
+				</a>
+				{% endif %}
 		</nav>
 		<!-- NAVBAR -->
 

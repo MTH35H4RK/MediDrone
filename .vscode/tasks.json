@@ -12,6 +12,16 @@
             "label": "Reload Static",
             "type": "shell",
             "command": "python manage.py collectstatic"
+        },
+        {
+            "label": "Reload Migrations",
+            "type": "shell",
+            "command": "python manage.py makemigrations"
+        },
+        {
+            "label": "Migrate",
+            "type": "shell",
+            "command": "python manage.py migrate"
         }
     ]
 }

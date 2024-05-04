@@ -4,37 +4,31 @@
 
 {% block active %}
     <li class="active">
-        <a href="{% url 'dashboard' %}">
+        <a href="{%url 'homeapp:dashboard' %}">
             <i class='bx bxs-dashboard bx-rotate-90' style='color:rgb(0, 0, 0), 255, 0;'></i>
             <span class="text">Dashboard</span>
         </a>
     </li>
     <li>
-        <a href="{% url 'drones' %}">
+        <a href="{%url 'homeapp:drones' %}">
             <i class='bx bx-command bx-rotate-90' style='color:rgb(0, 0, 0)'></i>
             <span class="text">Drones</span>
         </a>
     </li>
     <li>
-        <a href="{% url 'reports' %}">
+        <a href="{%url 'homeapp:reports' %}">
                 <i class='bx bxs-report'></i>
             <span class="text">Reports</span>
         </a>
     </li>
     <li>
-        <a href="{% url 'alerts' %}">
+        <a href="{%url 'homeapp:alerts' %}">
             <i class='bx bx-bell ' style='color:rgb(0, 0, 0)'></i>
             <span class="text">Alerts</span>
         </a>
     </li>
     <li>
-        <a href="{% url 'settings' %}">
-            <i class='bx bx-cog bx-rotate-180' style='color:rgb(0, 0, 0)'></i>
-            <span class="text">Settings</span>
-        </a>
-    </li>
-    <li>
-        <a href="{% url 'team' %}">
+        <a href="{%url 'homeapp:team' %}">
             <i class='bx bxs-group' ></i>
             <span class="text">Team</span>
         </a>
@@ -47,7 +41,7 @@
             <h1>Dashboard</h1>
             <ul class="breadcrumb">
                 <li>
-                    <a href="{%url 'dashboard'%}">Dashboard</a>
+                    <a href="{%url 'homeapp:dashboard'%}">Dashboard</a>
                 </li>
                 <li><i class='bx bx-chevron-right' ></i></li>
                 <li>
@@ -65,14 +59,14 @@
         <li>
             <i class='bx bxs-calendar-check' ></i>
             <span class="text">
-                <h3>1</h3>
+                <h3> {{ drone_active }} </h3>
                 <p>Active Drone</p>
             </span>
         </li>
         <li>
             <i class='bx bxs-group' ></i>
             <span class="text">
-                <h3>2</h3>
+                <h3> {{ drone_not_active }} </h3>
                 <p>Inactive Drones</p>
             </span>
         </li>
@@ -102,31 +96,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <img src="{% static 'images/drone.svg' %}">
-                            <p>DroneXT13</p>
-                        </td>
-                        <td>01-10-2021</td>
-                        <td><span class="status completed">Completed</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="{% static 'images/drone.svg' %}">
-                            <p>DroneXT14</p>
-                        </td>
-                        <td>01-10-2021</td>
-                        <td><span class="status pending">Pending</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="{% static 'images/drone.svg' %}">
-                            <p>DroneXT15</p>
-                        </td>
-                        <td>01-10-2021</td>
-                        <td><span class="status process">Process</span></td>
-                    </tr>
-                    
+                    {% for drone in drone_list %}
+                        {% if drone.active %}
+                            <tr>
+                                <td>
+                                    <img src="{% static 'images/drone.svg' %}">
+                                    <p>{{drone.dronename}}</p>
+                                </td>
+                                <td>01-10-2021</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td>
+                                    <img src="{% static 'images/drone.svg' %}">
+                                    <p>{{drone.dronename}}</p>
+                                </td>
+                                <td>01-10-2021</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
@@ -160,4 +150,13 @@
             </ul>
         </div>
     </div>
+{% endblock %}
+
+{% block sidebar %}
+    <li>
+        <a href="{%url 'homeapp:settings' %}">
+            <i class='bx bxs-cog' ></i>
+            <span class="text">Settings</span>
+        </a>
+    </li>
 {% endblock %}

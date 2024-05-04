@@ -4,37 +4,31 @@
 
 {% block active %}
     <li>
-        <a href="{% url 'dashboard' %}">
+        <a href="{%url 'homeapp:dashboard' %}">
             <i class='bx bxs-dashboard bx-rotate-90' style='color:rgb(0, 0, 0), 255, 0;'></i>
             <span class="text">Dashboard</span>
         </a>
     </li>
     <li>
-        <a href="{% url 'drones' %}">
+        <a href="{%url 'homeapp:drones' %}">
             <i class='bx bx-command bx-rotate-90' style='color:rgb(0, 0, 0)'></i>
             <span class="text">Drones</span>
         </a>
     </li>
     <li class="active">
-        <a href="{% url 'reports' %}">
+        <a href="{%url 'homeapp:reports' %}">
                 <i class='bx bxs-report'></i>
             <span class="text">Reports</span>
         </a>
     </li>
     <li>
-        <a href="{% url 'alerts' %}">
+        <a href="{%url 'homeapp:alerts' %}">
             <i class='bx bx-bell ' style='color:rgb(0, 0, 0)'></i>
             <span class="text">Alerts</span>
         </a>
     </li>
     <li>
-        <a href="{% url 'settings' %}">
-            <i class='bx bx-cog bx-rotate-180' style='color:rgb(0, 0, 0)'></i>
-            <span class="text">Settings</span>
-        </a>
-    </li>
-    <li>
-        <a href="{% url 'team' %}">
+        <a href="{%url 'homeapp:team' %}">
             <i class='bx bxs-group' ></i>
             <span class="text">Team</span>
         </a>
@@ -42,4 +36,13 @@
 {% endblock %}
 
 {% block main %}
+{% endblock %}
+
+{% block sidebar %}
+    <li>
+        <a href="{%url 'homeapp:settings' %}">
+            <i class='bx bxs-cog' ></i>
+            <span class="text">Settings</span>
+        </a>
+    </li>
 {% endblock %}

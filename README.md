@@ -44,6 +44,7 @@ To Login with an admin account use
 
 
 
+
 ## Updates
 
 ### 7/13/2024 by Bloom 🌸
@@ -58,3 +59,4 @@ To Login with an admin account use
 
  - Alerts and Reports need to be fixed
  - Dark Theme
+ - Change the Login in background

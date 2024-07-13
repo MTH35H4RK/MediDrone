@@ -48,6 +48,7 @@ To Login with an admin account use
 
 ### 7/13/2024 by Bloom 🌸
 
+- Update the read.me.
 - User Manager is completed, now Users can be created, be in the team or manage the site.
 - Drone page is completed, with the ability to create, update, delete and stream each drone.
 - Team page is completed, each user with the team tag is displayed in the page.

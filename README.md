@@ -59,4 +59,4 @@ To Login with an admin account use
 
  - Alerts and Reports need to be fixed
  - Dark Theme
- - Change the Login in background
+ - Change the background in login

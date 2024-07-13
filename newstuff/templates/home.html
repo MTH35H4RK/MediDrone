@@ -35,25 +35,16 @@
     </li>
 {% endblock %}
 
+{% block titleshit %}
+   Dashboard
+{% endblock %}
+
+{% block titleshit2 %}
+   Home
+{% endblock %}
+
 {% block main %}
-    <div class="head-title">
-        <div class="left">
-            <h1>Dashboard</h1>
-            <ul class="breadcrumb">
-                <li>
-                    <a href="{%url 'homeapp:dashboard'%}">Dashboard</a>
-                </li>
-                <li><i class='bx bx-chevron-right' ></i></li>
-                <li>
-                    <a class="active" href="#">Home</a>
-                </li>
-            </ul>
-        </div>
-        <a href="{% static 'images/MediDrone.pdf' %}" class="btn-download">
-            <i class='bx bxs-cloud-download' ></i>
-            <span class="text">Download Manual</span>
-        </a>
-    </div>
+   
 
     <ul class="box-info">
         <li>
@@ -153,10 +144,10 @@
 {% endblock %}
 
 {% block sidebar %}
-    <li>
-        <a href="{%url 'homeapp:settings' %}">
-            <i class='bx bxs-cog' ></i>
-            <span class="text">Settings</span>
-        </a>
-    </li>
+<li>
+    <a id="theme-toggle" href="">
+        <i class='bx bxs-cog' ></i>
+        <span class="text">Dark Theme</span>
+    </a>
+</li>
 {% endblock %}

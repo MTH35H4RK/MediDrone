@@ -139,6 +139,7 @@ body {
 	white-space: nowrap;
 	overflow-x: hidden;
 }
+
 #sidebar .side-menu.top li.active a {
 	color: var(--blue);
 }

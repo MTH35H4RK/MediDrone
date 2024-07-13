@@ -1,6 +1,10 @@
 from django.db import models
 from django.utils import timezone
 import os
+from django.contrib.auth.models import AbstractBaseUser, UserManager
+
+
+
 
 def custom_upload_to(instance, filename):
     extension = filename.split('.')[-1]
@@ -10,8 +14,9 @@ def custom_upload_to(instance, filename):
         os.remove(full_path)  
     return 'newstuff/static/images/avatar/{0}'.format(filename)
 
-class User(models.Model):
+class CUser(models.Model):
     username = models.CharField(max_length=15,unique=True)
+    password = models.CharField(max_length=15,unique=True)
     displayname = models.CharField(max_length=30)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
@@ -20,7 +25,19 @@ class User(models.Model):
     description = models.TextField(blank=True)
 
     avatar = models.ImageField(null=True,blank=True,upload_to=custom_upload_to)
-    userbg = models.CharField(blank=True,max_length=30)
+
+    USERBG_CHOICES = [
+        ('default', 'Default'),
+        ('stars', 'Stars'),
+    ]
+    userbg = models.CharField(blank=True,
+                              max_length=30,
+                              choices=USERBG_CHOICES,
+                              default="default")
+
+    is_in_team = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)
+
 
     def __str__(self):
         return self.username
@@ -39,6 +56,7 @@ class Alert(models.Model):
     alertname = models.CharField('Alert',max_length=30)
     dronetarget = models.ForeignKey(Drone,on_delete=models.PROTECT)
     alertdescription = models.TextField('Description')
+    is_read = models.BooleanField(default=False)
 
     def __str__(self):
         return self.alertname

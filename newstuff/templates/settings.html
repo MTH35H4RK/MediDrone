@@ -35,14 +35,22 @@
     </li>
 {% endblock %}
 
+{% block titleshit %}
+    Settings
+{% endblock %}
+
+{% block titleshit2 %}
+   Settings
+{% endblock %}
+
 {% block main %}
 {% endblock %}
 
 {% block sidebar %}
     <li class = "active">
-        <a href="{%url 'homeapp:settings' %}">
+        <a id="theme-toggle">
             <i class='bx bxs-cog' ></i>
-            <span class="text">Settings</span>
+            <span class="text">Dark Theme</span>
         </a>
     </li>
 {% endblock %}

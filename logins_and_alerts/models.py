@@ -3,9 +3,6 @@ from django.utils import timezone
 import os
 from django.contrib.auth.models import AbstractBaseUser, UserManager
 
-
-
-
 def custom_upload_to(instance, filename):
     extension = filename.split('.')[-1]
     filename = '{0}.{1}'.format(instance.username, extension)

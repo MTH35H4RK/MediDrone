@@ -101,6 +101,16 @@
             width: 250px;
             margin: 0 5px;
         }
+        .toast-container {
+            position: fixed;
+            bottom: -25%;
+            left: 50%;
+			transform: translate(135%, -25%);
+        }
+        .custom-img-size {
+            max-width: 50px; /* Adjust as needed */
+            max-height: 50px; /* Adjust as needed */
+        }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -122,7 +132,7 @@
             <div class="toast-container position-fixed bottom-0 end-0 p-3">
                 <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                   <div class="toast-header">
-                    <img src="..." class="rounded me-2" alt="...">
+                    <img src="{% static 'images/oopssmaller.png'%}" class="rounded me-2" alt="...">
                     <strong class="me-auto">System</strong>
                     <small>Now</small>
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -166,10 +176,10 @@
                 
                     {% if target.username == user.username %}<a href="{%url 'loginsapp:updateuser' %}"><button type="link" class="btn btn-primary">Edit Profile</button> </a>{% endif %}
                     {% if user.is_staff %}
-                        {% if target.is_in_team and not target.username == "bloomingyellow" %} <button class="btn btn-success" href="{%url 'homeapp:removeteam' targetuser=target.username %}">Remove from Team</button>
-                        {% elif not target.username == "bloomingyellow" %}  <button class="btn btn-success" href="{%url 'homeapp:maketeam' targetuser=target.username %}">Join Team</button> {% endif %}
-                        {% if target.is_staff and not target.username == "bloomingyellow" %} <button class="btn btn-success" href="{%url 'homeapp:removestaff' targetuser=target.username %}">Remove Staff</button>
-                        {% elif not target.username == "bloomingyellow" %}  <button class="btn btn-success" href="{%url 'homeapp:makestaff' targetuser=target.username %}">Make Staff</button> {% endif %}
+                        {% if target.is_in_team and not target.username == "bloomingyellow" %}<a href="{%url 'homeapp:removeteam' targetuser=target.username %}"> <button type="link" class="btn btn-success">Remove from Team</button> </a>
+                        {% elif not target.username == "bloomingyellow" %}<a href="{%url 'homeapp:maketeam' targetuser=target.username %}"> <button type="link" class="btn btn-success">Join Team</button> </a>{% endif %}
+                        {% if target.is_staff and not target.username == "bloomingyellow" %} <a href="{%url 'homeapp:removestaff' targetuser=target.username %}"> <button type="link" class="btn btn-success">Remove Staff</button> </a>
+                        {% elif not target.username == "bloomingyellow" %} <a href="{%url 'homeapp:makestaff' targetuser=target.username %}"> <button type="link" class="btn btn-success">Make Staff</button> </a>{% endif %}
                     {% endif %}
                
                    
@@ -184,7 +194,30 @@
             
         </div>
          
+         
     </div>
+     <!-- TOASTS -->
+	{% if messages %}
+        {% for message in messages %}
+            <div aria-live="polite" aria-atomic="true" class="position-relative">
+                <div class="toast-container bottom-0 start-0 p-3">
+                    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <img src="{% static 'images/oopssmaller.png'%}" class="mr-3 rounded custom-img-size" alt="...">
+                            <strong class="me-auto">System</strong>
+                            <small class="text-body-secondary">just now</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            {{ message }}
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <!-- TOASTS -->
     {% if target.userbg == "stars" %}
     <script>
         const vertexShaderSource = `
@@ -327,4 +360,13 @@
     </script>
     {% endif %}
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function (toastEl) {
+            return new bootstrap.Toast(toastEl, { delay: 5000 });
+        });
+        toastList.forEach(toast => toast.show());
+    });
+</script>
 </html>

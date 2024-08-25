@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from logins_and_alerts.models import Drone, CUser, Alert
+from django.contrib import messages
 
 user_list = CUser.objects.all()  
 drone_list = Drone.objects.all()
@@ -94,6 +95,7 @@ def maketeam(request, targetuser):
             target = user
     target.is_in_team = True
     target.save()
+    messages.success(request, (target.username + " has join the Team."))
     return redirect('homeapp:profile', username = target)
 
 def makestaff(request, targetuser):
@@ -103,6 +105,7 @@ def makestaff(request, targetuser):
             target = user
     target.is_staff = True
     target.save()
+    messages.success(request, (target.username + " has join the Staff team."))
     return redirect('homeapp:profile', username = target)
 
 def removeteam(request, targetuser):
@@ -112,6 +115,7 @@ def removeteam(request, targetuser):
             target = user
     target.is_in_team = False
     target.save()
+    messages.success(request, (target.username + " has been removed from the Team."))
     return redirect('homeapp:profile', username = target)
 
 def removestaff(request, targetuser):
@@ -121,5 +125,6 @@ def removestaff(request, targetuser):
             target = user
     target.is_staff = False
     target.save()
+    messages.success(request, (target.username + " has been removed from the Staff team."))
     return redirect('homeapp:profile', username = target)
        
